@@ -1,6 +1,4 @@
 # pynet-python
 Python Network Automation
 
-# Making a change to the readme file on lab server Git
-
-
+# Making a change to the readme file on Github
