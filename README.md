@@ -1,4 +1,6 @@
-# pynet-python
-Python Network Automation
+Python Network Automation Plus Course by Kirk Byers
+You can sign up Python, in addition to Ansible & Nornir courses over at https://pynet.twb-tech.com/
 
-# Making a change to the readme file on GitHub
+The files contained here are my own solutions to Kirk's exercises
+
+
