@@ -1,0 +1,19 @@
+
+{%- for v in vrf_entry.values() %}
+vrf definition {{ v["vrf_name"] }}
+ rd {{ v["rd_number"] }}
+ {%- if v["ipv4_af"] is defined %}
+ !
+ address-family ipv4
+  route-target export {{ v["rd_number"] }}
+  route-target import {{ v["rd_number"] }}
+ exit-address-family
+ {%- endif %}
+ {%- if v["ipv6_af"] is defined %}
+ !
+ address-family ipv6
+  route-target export {{ v["rd_number"] }}    
+  route-target import {{ v["rd_number"] }}
+ exit-address-family
+ {%- endif %} 
+{% endfor %} 
