@@ -1,0 +1,18 @@
+
+---
+- FQDN: <device FQDN>
+  device_name: nx01
+  password: test_pw
+  username: test_un
+- FQDN: <device FQDN>
+  device_name: nx02
+  password: test_pw
+  username: test_un
+- FQDN: <device FQDN>
+  device_name: cisco3
+  password: test_pw
+  username: test_un
+- FQDN: <device FQDN>
+  device_name: cisco4
+  password: test_pw
+  username: test_un
