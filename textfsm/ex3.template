@@ -1,0 +1,26 @@
+Value INTF_NAME (\S+)
+Value LINE_STATUS (\w+)
+Value ADMIN_STATE (\w+)
+Value MAC_ADDRESS (\w+.\w+.\w+)
+Value MTU (\d+)
+Value DUPLEX (\S+)
+Value SPEED (\d+)
+
+Start
+  ^${INTF_NAME} is ${LINE_STATUS}
+  ^admin state is ${ADMIN_STATE}
+  ^\s+Hardware.*address:\s+${MAC_ADDRESS}
+  # As we are matching on 1+ digits for MTU Value (/d+) the parser stops when it gets to last digit 
+  ^\s+MTU\s+${MTU}
+  # There are a no of lines before we get to the DUPLEX so below we put the start of each line
+  ^\s+reliability
+  ^\s+Encapsulation
+  ^\s+Port
+  # Without the comma after {DUPLEX}, both full-duplex, is recorded & the non white-space at the start of every new line!
+  # With the comma, it knows that we don't want to record the comma after full-duplex so stops at that point
+  # Note also that we only need -> Record at the end
+  ^\s+${DUPLEX}, ${SPEED} Mb/s -> Record
+
+
+EOF
+

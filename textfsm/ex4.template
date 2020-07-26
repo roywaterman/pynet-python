@@ -1,0 +1,13 @@
+Value MAC_ADDR ([0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2})
+Value ADDR ([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)
+Value NAME ([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)
+Value INTF (\w+\.\w+)
+
+Start
+  ^MAC.*Flags -> ShowArp
+
+ShowArp
+  ^${MAC_ADDR}\s+${ADDR}\s+${NAME}\s+${INTF} -> Record
+
+EOF
+
